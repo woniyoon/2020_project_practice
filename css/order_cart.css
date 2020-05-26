@@ -1,0 +1,97 @@
+body {
+    position: relative;
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid pink;
+}
+
+header {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 10%;
+    background-color: white;
+    box-shadow: 1px 1px 1px 0 #b6b6b65a, 0 1px 1px 0 rgba(155, 155, 155, 0.337);
+    padding-left: 30px;
+}
+
+ul.nav_menu {
+    list-style-type: none;
+    /* border: 2px solid peru; */
+    display: inline-block;
+}
+
+li {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 15pt;
+    margin-right: 15px;
+}
+
+.nav_menu a:active {
+    color: green;
+}
+
+img#logo {
+    vertical-align: middle;
+    display: inline-block;
+}                               /* header 끝 */
+
+
+ul.order_progress li {
+    display: inline-block;
+    height: 50px;
+    width: 100px;
+    background-color: green;
+    color:white;
+    border: 1px solid lightgrey;
+    margin: 0;
+    text-align: center;
+}
+
+.order_progress {
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    margin: 30px auto;
+    width: 100%;
+    height: auto;
+    padding-bottom: 5rem;
+}
+
+div.card {
+    display: flex;
+    align-items: row;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 60px;
+    border-radius: 2%;
+}                               
+
+div#card_text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 0 0 100px;
+}
+
+
+
+/* section 끝 */
+
+
+footer {
+    position: absolute;
+    height: 5rem;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(46, 46, 46);
+}
