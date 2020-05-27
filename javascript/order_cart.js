@@ -31,6 +31,7 @@ function show_items(){
     if(cart.length > 0) {
         cart.forEach(function(item, index){
             items_html += ("<div id='"+index+"' class='card'>"
+                            +"<div class='card_detail_conatiner'>"
                                 + "<img src='/assets/icedamericano.png'>"
                                 + "<div id='card_text' >"
                                     + "<h3>"+item.name+"</h3>"
@@ -56,10 +57,11 @@ function show_items(){
                                                     + "<option name='syrup' value='hazelnut'>헤이즐넛시럽</option>"
                                                 + "</select></li>"
                                             + "<li><label>수량</label><input id='"+index+"' onchange='update_amount(this)' type='number' value='"+item.amount+"' min='0' ></li> <br/>"
-                                            + "<label>"+item.price+"원</label>"
                                         + "</ul>"
                                 + "</div>"
                                 +"<p><button id='"+index+"' onclick='remove_item(this.id)'>삭제</button></p>"
+                                +"</div>"
+                                + "<span class='price' align='right'>"+(item.price * item.amount)+"원</span>"
                             +"</div>"
                         )
         });
