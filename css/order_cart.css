@@ -42,7 +42,6 @@ img#logo {
     display: inline-block;
 }                               /* header 끝 */
 
-
 ul.order_progress li {
     display: inline-block;
     height: 50px;
@@ -74,16 +73,12 @@ div.card {
     margin: 50px auto;
     padding: 60px;
     border-radius: 2%;
-}                               
+}       
 
-div#card_text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 0 0 0 100px;
+input, select{
+    width: 60px;
+    box-sizing:border-box;
 }
-
-
 
 /* section 끝 */
 
