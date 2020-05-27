@@ -80,7 +80,7 @@ div.card {
     border-radius: 2%;
 }       
 
-div.card > img {
+div.card_detail_conatiner > img {
     flex: 1;
     width: 200px;
     height: 220px;
