@@ -85,11 +85,15 @@ function remove_item(index){
 }
 
 function update_amount(card_obj){
+    console.log(card_obj);
     var amount = card_obj.value;
 
     console.log("input number amount changed: " + amount);
     if(amount == 0) {
         remove_item(card_obj.id);
+    } else {
+        cart[card_obj.id].amount = amount;
+        show_items();   // 좋은 방법인지 모르겠음....
     }
 }
 
