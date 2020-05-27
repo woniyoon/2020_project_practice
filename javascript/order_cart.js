@@ -31,17 +31,39 @@ function show_items(){
     if(cart.length > 0) {
         cart.forEach(function(item, index){
             items_html += ("<div id='"+index+"' class='card'>"
-                            + "<img src='/assets/icedamericano.png' width='200px' height='220px'>"
+                                + "<img src='/assets/icedamericano.png'>"
                                 + "<div id='card_text' >"
                                     + "<h3>"+item.name+"</h3>"
-                                    + "<label>"+item.price+"원</label>"
-                                    + "<label>"+item.size+"</label>"
-                                    + "<label>수량</label><input id='"+index+"' onchange='update_amount(this)' type='number' value='"+item.amount+"' min='0' >"
-                                    +"<p><button id='"+index+"' onclick='remove_item(this.id)'>삭제</button></p>"
+                                        +"<ul>"
+                                            + "<li><label>사이즈</label>"
+                                                +"<select name='size'>"
+                                                    + "<option value='tall' checked>톨</option>"
+                                                    + "<option value='grande'>그란데</option>"
+                                                    + "<option value='venti'>벤티</option>"
+                                                + "</select></li>"
+                                            + "<li><label>커피</label><input type='number' value='2' min='1' max='5' ></li>"
+                                            + "<li><label>얼음</label>"
+                                                +"<select name='ice'>"
+                                                    + "<option name='ice' value='1' checked>적게</option>"
+                                                    + "<option name='ice' value='2'>보통</option>"
+                                                    + "<option name='ice' value='3'>많이</option>"
+                                                + "</select></li>"
+                                            + "<li><label>시럽</label>"
+                                                +"<select name='syrup'>"
+                                                    + "<option name='syrup' value='none' checked>없음</option>"
+                                                    + "<option name='syrup' value='classic'>클래식시럽</option>"
+                                                    + "<option name='syrup' value='vanilla'>바닐라시럽</option>"
+                                                    + "<option name='syrup' value='hazelnut'>헤이즐넛시럽</option>"
+                                                + "</select></li>"
+                                            + "<li><label>수량</label><input id='"+index+"' onchange='update_amount(this)' type='number' value='"+item.amount+"' min='0' ></li> <br/>"
+                                            + "<label>"+item.price+"원</label>"
+                                        + "</ul>"
                                 + "</div>"
+                                +"<p><button id='"+index+"' onclick='remove_item(this.id)'>삭제</button></p>"
                             +"</div>"
                         )
         });
+
 
         console.log(cart);
     } else {
@@ -68,3 +90,6 @@ function update_amount(card_obj){
         remove_item(card_obj.id);
     }
 }
+
+
+//TODO: set the new value for shots depending on changed size option
