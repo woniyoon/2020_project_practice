@@ -59,9 +59,9 @@ function show_items(){
                                             + "<li><label>수량</label><input id='"+index+"' onchange='update_amount(this)' type='number' value='"+item.amount+"' min='0' ></li> <br/>"
                                         + "</ul>"
                                 + "</div>"
-                                +"<p><button id='"+index+"' onclick='remove_item(this.id)'>삭제</button></p>"
+                                +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
                                 +"</div>"
-                                + "<span class='price' align='right'>"+(item.price * item.amount)+"원</span>"
+                                + "<span class='price' id='price"+index+"' align='right'>"+(item.price * item.amount)+"원</span>"
                             +"</div>"
                         )
         });
@@ -87,13 +87,18 @@ function remove_item(index){
 function update_amount(card_obj){
     console.log(card_obj);
     var amount = card_obj.value;
+    var index = card_obj.id;
 
     console.log("input number amount changed: " + amount);
     if(amount == 0) {
         remove_item(card_obj.id);
     } else {
-        cart[card_obj.id].amount = amount;
-        show_items();   // 좋은 방법인지 모르겠음....
+        cart[index].amount = amount;
+        var priceSpan = document.getElementById("price"+index);
+        priceSpan.innerHTML = amount * cart[index].price + "원";
+
+        console.log(priceSpan);
+//        show_items();   // 좋은 방법인지 모르겠음....
     }
 }
 
