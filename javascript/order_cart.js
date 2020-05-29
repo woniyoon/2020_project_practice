@@ -4,18 +4,21 @@ var cart = [
         price: 4100,
         size: "tall",
         amount: 1,
+        shots: 2,
     },
     {
         name: "아이스 라떼",
         price: 4500,
         size: "tall",
         amount: 1,
+        shots: 2,
     },
     {
         name: "돌체라떼",
         price: 4500,
         size: "tall",
         amount: 1,
+        shots: 2,
     },
 ];
 
@@ -61,7 +64,7 @@ function show_items(){
                                 + "</div>"
                                 +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
                                 +"</div>"
-                                + "<span class='price' id='price"+index+"' align='right'>"+(item.price * item.amount)+"</span><span>원</span>"
+                                + "<span class='price' id='price"+index+"' align='right'>"+(item.price * item.amount)+"원</span>"
                             +"</div>"
                         )
         });
@@ -112,13 +115,16 @@ function update_shot(card_obj){
     } 
 
     var price_span = document.getElementById("price"+index);
-    var original_price = Number(price_span.innerHTML);
+    var original_price = Number((price_span.innerHTML).replace("원", ""));
 
+    // 장바구니에 있는 커피의 샷 수와 현재 선택한 샷 수를 비교
     if(cart[index].shots > shots) {
-        price_span.innerHTML = original_price - 500;
+        price_span.innerHTML = (original_price - 500) +"원";
     } else {
-        price_span.innerHTML = original_price + 500;
+        price_span.innerHTML = (original_price + 500) +"원";
     }
+
+    cart[index].shots = shots;
 }
 
 
