@@ -42,7 +42,7 @@ function show_items(){
                                                     + "<option value='grande'>그란데</option>"
                                                     + "<option value='venti'>벤티</option>"
                                                 + "</select></li>"
-                                            + "<li><label>커피</label><input type='number' value='2' min='1' max='5' ></li>"
+                                            + "<li><label>커피</label><input id='shot"+index+"' onchange='update_shot(this)' type='number' value='2' min='1' max='5' ></li>"
                                             + "<li><label>얼음</label>"
                                                 +"<select name='ice'>"
                                                     + "<option name='ice' value='1' checked>적게</option>"
@@ -61,7 +61,7 @@ function show_items(){
                                 + "</div>"
                                 +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
                                 +"</div>"
-                                + "<span class='price' id='price"+index+"' align='right'>"+(item.price * item.amount)+"원</span>"
+                                + "<span class='price' id='price"+index+"' align='right'>"+(item.price * item.amount)+"</span><span>원</span>"
                             +"</div>"
                         )
         });
@@ -76,13 +76,16 @@ function show_items(){
 }
 
 function remove_item(index){
-    console.log(index);
+    snackBar(cart[index].size+" 사이즈 "+cart[index].name+"가 삭제됐습니다!")
+
     cart.splice(index, 1);
 
     console.log(cart);
     // $("div#" + index).remove();
     show_items();
 }
+
+// TODO: 수량은 계산할 필요 없는 것 같음...
 
 function update_amount(card_obj){
     console.log(card_obj);
@@ -94,13 +97,19 @@ function update_amount(card_obj){
         remove_item(card_obj.id);
     } else {
         cart[index].amount = amount;
-        var priceSpan = document.getElementById("price"+index);
-        priceSpan.innerHTML = amount * cart[index].price + "원";
-
-        console.log(priceSpan);
-//        show_items();   // 좋은 방법인지 모르겠음....
+        var price_span = document.getElementById("price"+index);
+        price_span.innerHTML = amount * cart[index].price;
     }
 }
 
 
 //TODO: set the new value for shots depending on changed size option
+
+
+function snackBar(msg) {
+    $("#snackbar").html(msg);
+
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
