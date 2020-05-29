@@ -103,7 +103,23 @@ function update_amount(card_obj){
 }
 
 
-//TODO: set the new value for shots depending on changed size option
+function update_shot(card_obj){
+    var shots = card_obj.value;
+    var index = card_obj.id.substr(4);
+
+    if(shots == 5) {
+        snackBar("에스프레소 샷은 최대 5개 입니다!");
+    } 
+
+    var price_span = document.getElementById("price"+index);
+    var original_price = Number(price_span.innerHTML);
+
+    if(cart[index].shots > shots) {
+        price_span.innerHTML = original_price - 500;
+    } else {
+        price_span.innerHTML = original_price + 500;
+    }
+}
 
 
 function snackBar(msg) {
