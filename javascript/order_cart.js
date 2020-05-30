@@ -7,6 +7,13 @@ var cart = [
         shots: 2,
     },
     {
+        name: "아이스 아메리카노",
+        price: 4100,
+        size: "tall",
+        amount: 1,
+        shots: 2,
+    },
+    {
         name: "아이스 라떼",
         price: 4500,
         size: "tall",
@@ -22,8 +29,9 @@ var cart = [
     },
 ];
 
-$(document).ready(function(){
+var size_dictionary = { tall: "톨", grande: "그란데", venti: "벤티" };
 
+$(document).ready(function(){
     show_items();
 });
 
@@ -59,7 +67,7 @@ function show_items(){
                                                     + "<option name='syrup' value='vanilla'>바닐라시럽</option>"
                                                     + "<option name='syrup' value='hazelnut'>헤이즐넛시럽</option>"
                                                 + "</select></li>"
-                                            + "<li><label>수량</label><input id='"+index+"' onchange='update_amount(this)' type='number' value='"+item.amount+"' min='0' ></li> <br/>"
+                                                + "<li><label>수량</label><input id='"+index+"' onchange='update_amount(this)' type='number' value='"+item.amount+"' min='0' ></li> <br/>"
                                         + "</ul>"
                                 + "</div>"
                                 +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
@@ -75,11 +83,12 @@ function show_items(){
         var items_html = "<span>장바구니가 비어있어요!</span>"
     }
 
-    cart_items.html(items_html);
+    cart_items.html(items_html + "<hr>");
 }
 
 function remove_item(index){
-    snackBar(cart[index].size+" 사이즈 "+cart[index].name+"가 삭제됐습니다!")
+    var size = cart[index].size;
+    snackBar(size_dictionary[size]+" 사이즈 "+cart[index].name+"가 삭제됐습니다!");
 
     cart.splice(index, 1);
 
