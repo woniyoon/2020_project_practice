@@ -38,9 +38,13 @@ $(document).ready(function(){
 function show_items(){
     var cart_items = $("div.items_container");
     var items_html = "";
-    
+    var sum = 0;
+    var sum_html = "";
+
     if(cart.length > 0) {
         cart.forEach(function(item, index){
+            sum += item.price;
+
             items_html += ("<div id='"+index+"' class='card'>"
                             +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
                             +"<div class='card_detail_conatiner'>"
@@ -77,13 +81,14 @@ function show_items(){
                         )
         });
 
-
+        sum_html = "<hr><h2 id='total_price' align='right'>" + sum + "원</h2>";
         console.log(cart);
     } else {
-        var items_html = "<span>장바구니가 비어있어요!</span>"
+        var items_html = "<h3>장바구니가 비어있어요!</h3>"
+        sum_html = "";
     }
 
-    cart_items.html(items_html + "<hr>");
+    cart_items.html(items_html + sum_html);
 }
 
 function remove_item(index){
