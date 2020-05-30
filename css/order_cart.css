@@ -1,11 +1,11 @@
 body {
-    position: relative;
+    position: absolute;
     min-height: 100vh;
     height: auto;
-    width: 100%;
+    width: 100vw;
     margin: 0 auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
 }
 
 header {
@@ -45,7 +45,7 @@ img#logo {
 ul.order_progress li {
     display: inline-block;
     height: 50px;
-    width: 100px;
+    min-width: 80px;
     background-color: green;
     color:white;
     border: 1px solid lightgrey;
@@ -56,6 +56,7 @@ ul.order_progress li {
 .order_progress {
     display: flex;
     justify-content: center;
+    padding-inline-start: 0px;
 }
 
 section {
@@ -70,14 +71,39 @@ div.card {
     align-items: row; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 500px;
+    max-height: 600px;
     margin: 50px auto;
     padding: 30px;
     border-radius: 2%;
 }      
 
+@media (max-width:960px) {
+    div.card {
+        min-width: 60vw;
+        max-width: 60vw;
+        max-height: 600px;
+        min-height: 40vh;
+        border: 2px solid black;
+        overflow: inherit;
+
+    }
+    
+    div.card_detail_container {
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        flex-flow: column;
+    }
+
+    div.card_detail_conatiner > img {
+        flex: 1;
+        min-width: 100px;
+        min-height: 120px;
+    }
+}
+
 div.card_detail_conatiner {
     display: flex;
-    align-items: row;
     /* border: 1px solid pink; */
     margin: auto;
 }
@@ -87,7 +113,6 @@ div.card_detail_conatiner > img {
     flex: 1;
     width: 200px;
     height: 220px;
-
 }
 
 div#card_text {
@@ -113,7 +138,7 @@ div.card label {
     display: inline-block;
     width: 70px;
     font-size: 1rem;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 input, select{
@@ -128,10 +153,15 @@ span.price {
     /* border: 1px solid red; */
 }
 
-p > button {
-    display: absolute;
+p {
+    display: block;
+    text-align: end;
     top: 0px;
     right: 0px;
+    margin: 0;
+}
+
+p > button {
     font-size: 2rem;
     background-color: transparent;  
     border: none;
@@ -143,7 +173,7 @@ p > button {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
-    background-color: #333;
+    background-color: green;
     color: #fff;
     text-align: center;
     border-radius: 2px;
@@ -151,8 +181,12 @@ p > button {
     position: fixed;
     z-index: 1;
     left: 50%;
-    bottom: 30px;
+    bottom: 50px;
     font-size: 17px;
+}
+
+hr {
+    max-width: 50%; 
 }
 
 #snackbar.show {
@@ -163,16 +197,16 @@ p > button {
 
 @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;} 
-    to {bottom: 30px; opacity: 1;}
+    to {bottom: 50px; opacity: 1;}
 }
 
 @keyframes fadein {
     from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    to {bottom: 50px; opacity: 1;}
 }
 
 @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
+    from {bottom: 50px; opacity: 1;} 
     to {bottom: 0; opacity: 0;}
 }
 
@@ -180,6 +214,6 @@ footer {
     position: absolute;
     height: 5rem;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     background-color: rgb(46, 46, 46);
 }
