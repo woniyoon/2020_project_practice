@@ -38,10 +38,11 @@ $(document).ready(function(){
 function show_items(){
     var cart_items = $("div.items_container");
     var items_html = "";
-
+    
     if(cart.length > 0) {
         cart.forEach(function(item, index){
             items_html += ("<div id='"+index+"' class='card'>"
+                            +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
                             +"<div class='card_detail_conatiner'>"
                                 + "<img src='/assets/icedamericano.png'>"
                                 + "<div id='card_text' >"
@@ -67,10 +68,9 @@ function show_items(){
                                                     + "<option name='syrup' value='vanilla'>바닐라시럽</option>"
                                                     + "<option name='syrup' value='hazelnut'>헤이즐넛시럽</option>"
                                                 + "</select></li>"
-                                                + "<li><label>수량</label><input id='"+index+"' onchange='update_amount(this)' type='number' value='"+item.amount+"' min='0' ></li> <br/>"
+                                            // + "<li><label>수량</label><input id='"+index+"' onchange='update_amount(this)' type='number' value='"+item.amount+"' min='0' ></li> <br/>"
                                         + "</ul>"
                                 + "</div>"
-                                +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
                                 +"</div>"
                                 + "<span class='price' id='price"+index+"' align='right'>"+(item.price * item.amount)+"원</span>"
                             +"</div>"
@@ -99,20 +99,20 @@ function remove_item(index){
 
 // TODO: 수량은 계산할 필요 없는 것 같음...
 
-function update_amount(card_obj){
-    console.log(card_obj);
-    var amount = card_obj.value;
-    var index = card_obj.id;
+// function update_amount(card_obj){
+//     console.log(card_obj);
+//     var amount = card_obj.value;
+//     var index = card_obj.id;
 
-    console.log("input number amount changed: " + amount);
-    if(amount == 0) {
-        remove_item(card_obj.id);
-    } else {
-        cart[index].amount = amount;
-        var price_span = document.getElementById("price"+index);
-        price_span.innerHTML = amount * cart[index].price;
-    }
-}
+//     console.log("input number amount changed: " + amount);
+//     if(amount == 0) {
+//         remove_item(card_obj.id);
+//     } else {
+//         cart[index].amount = amount;
+//         var price_span = document.getElementById("price"+index);
+//         price_span.innerHTML = amount * cart[index].price;
+//     }
+// }
 
 
 function update_shot(card_obj){
