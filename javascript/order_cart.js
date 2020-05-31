@@ -147,10 +147,24 @@ function update_shot(card_obj){
 
     price = cart[index].price + (500 * (shots - cart[index].shots));
     $("#price"+index).html(price+"원");
-    
+    get_total_price();
     console.log("장바구니 사이즈 : "+cart[index].size);
+}
+
+function get_total_price(){
+    var total_price = 0;
+
+    $("span.price").each(function(){
+        console.log(this);
+        var price_per_unit = Number(this.innerText.replace("원", ""));
+        total_price += price_per_unit;
+    });
+
+    $("#total_price").text(total_price + "원");
 
 }
+
+
 
 
 function snackBar(msg) {
