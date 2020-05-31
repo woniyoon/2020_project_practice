@@ -2,37 +2,63 @@ var cart = [
     {
         name: "아이스 아메리카노",
         price: 4100,
-        size: "tall",
+        size: 1,
         amount: 1,
-        shots: 2,
+        shots: 3,
     },
     {
         name: "아이스 아메리카노",
         price: 4100,
-        size: "tall",
+        size: 1,
         amount: 1,
-        shots: 2,
+        shots: 3,
     },
     {
         name: "아이스 라떼",
         price: 4500,
-        size: "tall",
+        size: 1,
         amount: 1,
-        shots: 2,
+        shots: 3,
     },
     {
         name: "돌체라떼",
         price: 4500,
-        size: "tall",
+        size: 1,
         amount: 1,
-        shots: 2,
+        shots: 3,
     },
 ];
 
 var size_dictionary = { tall: "톨", grande: "그란데", venti: "벤티" };
+var num_to_size = { 1: "tall", 2: "grande", 3: "venti" };
+var shot_dictionary = { tall: 3, grande: 4, venti: 5 };
 
 $(document).ready(function(){
     show_items();
+
+    $("select.size").change(function(){
+        var selected_size = this.value;
+        var index= (this.id).substring(4);
+        console.log("사이즈 변경 시점");
+        console.log("장바구니 속 사이즈 " + cart[index].size);
+        console.log("실제 선택된 사이즈 " + selected_size);
+        // var price = 0;
+
+        
+        // price = cart[index].price + (500 * (selected_size - cart[index].size));
+        
+
+        // cart[index].size = Number(selected_size);
+        console.log(shot_dictionary[num_to_size[selected_size]]);
+        // $("#price"+index).html(price + "원");    
+
+        // cart[index].shots = shot_dictionary[num_to_size[selected_size]];
+
+        console.log(cart[index].price);
+        $("#shot"+index).val(shot_dictionary[num_to_size[selected_size]]);
+
+        $("input#shot"+index).trigger("change");
+    });
 });
 
 function show_items(){
@@ -53,12 +79,12 @@ function show_items(){
                                     + "<h3>"+item.name+"</h3>"
                                         +"<ul>"
                                             + "<li><label>사이즈</label>"
-                                                +"<select name='size'>"
-                                                    + "<option value='tall' checked>톨</option>"
-                                                    + "<option value='grande'>그란데</option>"
-                                                    + "<option value='venti'>벤티</option>"
+                                                +"<select class='size' id='size"+index+"' name='size'>"
+                                                    + "<option value='1' checked>톨</option>"
+                                                    + "<option value='2'>그란데</option>"
+                                                    + "<option value='3'>벤티</option>"
                                                 + "</select></li>"
-                                            + "<li><label>커피</label><input id='shot"+index+"' onchange='update_shot(this)' type='number' value='2' min='1' max='5' ></li>"
+                                            + "<li><label>커피</label><input class='shot' id='shot"+index+"' onchange='update_shot(this)' type='number' value='"+cart[index].shots+"' min='1' max='5' ></li>"
                                             + "<li><label>얼음</label>"
                                                 +"<select name='ice'>"
                                                     + "<option name='ice' value='1' checked>적게</option>"
@@ -76,7 +102,7 @@ function show_items(){
                                         + "</ul>"
                                 + "</div>"
                                 +"</div>"
-                                + "<span class='price' id='price"+index+"' align='right'>"+(item.price * item.amount)+"원</span>"
+                                + "<span class='price' id='price"+index+"' align='right'>"+item.price+"원</span>"
                             +"</div>"
                         )
         });
@@ -121,6 +147,7 @@ function remove_item(index){
 
 
 function update_shot(card_obj){
+    console.log("shot update!");
     var shots = card_obj.value;
     var index = card_obj.id.substr(4);
 
@@ -130,15 +157,29 @@ function update_shot(card_obj){
 
     var price_span = document.getElementById("price"+index);
     var original_price = Number((price_span.innerHTML).replace("원", ""));
+    var selected_size = $("select#size"+index+" option:selected").val();
+    
+    // price_span.innerHTML = (original_price + (500 * (cart[index].shots - shots))) +"원";
 
-    // 장바구니에 있는 커피의 샷 수와 현재 선택한 샷 수를 비교
-    if(cart[index].shots > shots) {
-        price_span.innerHTML = (original_price - 500) +"원";
-    } else {
-        price_span.innerHTML = (original_price + 500) +"원";
-    }
 
-    cart[index].shots = shots;
+    var price = 0;
+
+        
+    price = cart[index].price + (500 * (shots - cart[index].shots));
+    price_span.innerHTML = price + "원";
+    console.log("장바구니 사이즈 : "+cart[index].size);
+    // console.log("카드 내의 사이즈 : " + selected_size);
+    // if(cart[index].size == selected_size && cart[index].shots != shots) {
+        // if(cart[index].shots > shots) {
+        //     price_span.innerHTML = (original_price - (500 * (cart[index].shots - shots))) +"원";
+        // } else {
+        //     price_span.innerHTML = (original_price + (500 * (shots - cart[index].shots))) +"원";
+        // } 
+    // } else {
+    //     console.log("선택된것과 장바구니의 사이즈가 다를 때 ");
+    // }
+    
+    // cart[index].shots = shots;
 }
 
 
