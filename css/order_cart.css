@@ -43,7 +43,9 @@ img#logo {
 }                               /* header 끝 */
 
 ul.order_progress li {
-    display: inline-block;
+    /* display: inline-block; */
+    display: table-cell;
+    vertical-align: middle;
     height: 50px;
     min-width: 80px;
     background-color: green;
@@ -53,9 +55,10 @@ ul.order_progress li {
     text-align: center;
 }
 
-.order_progress {
-    display: flex;
-    justify-content: center;
+ul.order_progress {
+    display: table;
+    margin: 0 auto;
+    /* justify-content: center; */
     padding-inline-start: 0px;
 }
 
