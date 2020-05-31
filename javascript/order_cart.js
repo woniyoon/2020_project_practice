@@ -29,7 +29,7 @@ var cart = [
     },
 ];
 
-var size_dictionary = { tall: "톨", grande: "그란데", venti: "벤티" };
+var size_dictionary = { 1: "톨", 2: "그란데", 3: "벤티" };
 var num_to_size = { 1: "tall", 2: "grande", 3: "venti" };
 var shot_dictionary = { tall: 3, grande: 4, venti: 5 };
 
