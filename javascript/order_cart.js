@@ -42,18 +42,7 @@ $(document).ready(function(){
         console.log("사이즈 변경 시점");
         console.log("장바구니 속 사이즈 " + cart[index].size);
         console.log("실제 선택된 사이즈 " + selected_size);
-        // var price = 0;
-
         
-        // price = cart[index].price + (500 * (selected_size - cart[index].size));
-        
-
-        // cart[index].size = Number(selected_size);
-        console.log(shot_dictionary[num_to_size[selected_size]]);
-        // $("#price"+index).html(price + "원");    
-
-        // cart[index].shots = shot_dictionary[num_to_size[selected_size]];
-
         console.log(cart[index].price);
         $("#shot"+index).val(shot_dictionary[num_to_size[selected_size]]);
 
@@ -150,36 +139,17 @@ function update_shot(card_obj){
     console.log("shot update!");
     var shots = card_obj.value;
     var index = card_obj.id.substr(4);
+    var price = 0;
 
     if(shots == 5) {
         snackBar("에스프레소 샷은 최대 5개 입니다!");
     } 
 
-    var price_span = document.getElementById("price"+index);
-    var original_price = Number((price_span.innerHTML).replace("원", ""));
-    var selected_size = $("select#size"+index+" option:selected").val();
-    
-    // price_span.innerHTML = (original_price + (500 * (cart[index].shots - shots))) +"원";
-
-
-    var price = 0;
-
-        
     price = cart[index].price + (500 * (shots - cart[index].shots));
-    price_span.innerHTML = price + "원";
-    console.log("장바구니 사이즈 : "+cart[index].size);
-    // console.log("카드 내의 사이즈 : " + selected_size);
-    // if(cart[index].size == selected_size && cart[index].shots != shots) {
-        // if(cart[index].shots > shots) {
-        //     price_span.innerHTML = (original_price - (500 * (cart[index].shots - shots))) +"원";
-        // } else {
-        //     price_span.innerHTML = (original_price + (500 * (shots - cart[index].shots))) +"원";
-        // } 
-    // } else {
-    //     console.log("선택된것과 장바구니의 사이즈가 다를 때 ");
-    // }
+    $("#price"+index).html(price+"원");
     
-    // cart[index].shots = shots;
+    console.log("장바구니 사이즈 : "+cart[index].size);
+
 }
 
 
