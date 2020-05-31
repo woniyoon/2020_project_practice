@@ -60,43 +60,43 @@ function show_items(){
         cart.forEach(function(item, index){
             sum += item.price;
 
-            items_html += ("<div id='"+index+"' class='card'>"
-                            +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
-                            +"<div class='card_detail_conatiner'>"
-                                + "<img src='/assets/icedamericano.png'>"
-                                + "<div id='card_text' >"
-                                    + "<h3>"+item.name+"</h3>"
-                                        +"<ul>"
-                                            + "<li><label>사이즈</label>"
-                                                +"<select class='size' id='size"+index+"' name='size'>"
-                                                    + "<option value='1' checked>톨</option>"
-                                                    + "<option value='2'>그란데</option>"
-                                                    + "<option value='3'>벤티</option>"
-                                                + "</select></li>"
-                                            + "<li><label>커피</label><input class='shot' id='shot"+index+"' onchange='update_shot(this)' type='number' value='"+cart[index].shots+"' min='1' max='5' ></li>"
-                                            + "<li><label>얼음</label>"
-                                                +"<select name='ice'>"
-                                                    + "<option name='ice' value='1' checked>적게</option>"
-                                                    + "<option name='ice' value='2'>보통</option>"
-                                                    + "<option name='ice' value='3'>많이</option>"
-                                                + "</select></li>"
-                                            + "<li><label>시럽</label>"
-                                                +"<select name='syrup'>"
-                                                    + "<option name='syrup' value='none' checked>없음</option>"
-                                                    + "<option name='syrup' value='classic'>클래식시럽</option>"
-                                                    + "<option name='syrup' value='vanilla'>바닐라시럽</option>"
-                                                    + "<option name='syrup' value='hazelnut'>헤이즐넛시럽</option>"
-                                                + "</select></li>"
-                                            // + "<li><label>수량</label><input id='"+index+"' onchange='update_amount(this)' type='number' value='"+item.amount+"' min='0' ></li> <br/>"
-                                        + "</ul>"
-                                + "</div>"
+            items_html += ("<div id='card"+index+"' class='card'>"
+                                +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
+                                +"<div class='card_detail_conatiner'>"
+                                    + "<img src='/assets/icedamericano.png'>"
+                                    + "<div id='card_text' >"
+                                        + "<h3>"+item.name+"</h3>"
+                                            +"<ul>"
+                                                + "<li><label>사이즈</label>"
+                                                    +"<select class='size' id='size"+index+"' name='size'>"
+                                                        + "<option value='1' checked>톨</option>"
+                                                        + "<option value='2'>그란데</option>"
+                                                        + "<option value='3'>벤티</option>"
+                                                    + "</select></li>"
+                                                + "<li><label>커피</label><input class='shot' id='shot"+index+"' onchange='update_shot(this)' type='number' value='"+cart[index].shots+"' min='1' max='5' ></li>"
+                                                + "<li><label>얼음</label>"
+                                                    +"<select name='ice'>"
+                                                        + "<option name='ice' value='1' checked>적게</option>"
+                                                        + "<option name='ice' value='2'>보통</option>"
+                                                        + "<option name='ice' value='3'>많이</option>"
+                                                    + "</select></li>"
+                                                + "<li><label>시럽</label>"
+                                                    +"<select name='syrup'>"
+                                                        + "<option name='syrup' value='none' checked>없음</option>"
+                                                        + "<option name='syrup' value='classic'>클래식시럽</option>"
+                                                        + "<option name='syrup' value='vanilla'>바닐라시럽</option>"
+                                                        + "<option name='syrup' value='hazelnut'>헤이즐넛시럽</option>"
+                                                    + "</select></li>"
+                                                // + "<li><label>수량</label><input id='"+index+"' onchange='update_amount(this)' type='number' value='"+item.amount+"' min='0' ></li> <br/>"
+                                            + "</ul>"
+                                    + "</div>"
                                 +"</div>"
                                 + "<span class='price' id='price"+index+"' align='right'>"+item.price+"원</span>"
                             +"</div>"
                         )
         });
 
-        sum_html = "<hr><h2 id='total_price' align='right'>" + sum + "원</h2>";
+        sum_html = "<hr><br><br><h2 id='total_price' align='right'>" + sum + "원</h2>";
         console.log(cart);
     } else {
         var items_html = "<h3>장바구니가 비어있어요!</h3>"
@@ -112,7 +112,7 @@ function remove_item(index){
 
     cart.splice(index, 1);
 
-    console.log(cart);
+    // $("#card"+index).hide();
     // $("div#" + index).remove();
     show_items();
 }
@@ -163,9 +163,6 @@ function get_total_price(){
     $("#total_price").text(total_price + "원");
 
 }
-
-
-
 
 function snackBar(msg) {
     $("#snackbar").html(msg);
