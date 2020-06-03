@@ -42,6 +42,14 @@ img#logo {
     display: inline-block;
 }                               /* header 끝 */
 
+nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    margin: 30px auto;
+    /* border: 1px solid salmon; */
+}
+
 ul.order_progress li {
     /* display: inline-block; */
     display: table-cell;
@@ -86,16 +94,17 @@ div.card {
         max-width: 60vw;
         max-height: 600px;
         min-height: 40vh;
-        border: 2px solid black;
+        /* border: 2px solid black; */
         overflow: inherit;
 
     }
     
     div.card_detail_container {
-        border: 2px solid black;
+        /* border: 2px solid black; */
         display: flex;
         flex-direction: column;
         flex-flow: column;
+        margin: 0 auto;
     }
 
     div.card_detail_conatiner > img {
@@ -108,7 +117,6 @@ div.card {
 div.card_detail_conatiner {
     display: flex;
     /* border: 1px solid pink; */
-    margin: auto;
 }
 
 
