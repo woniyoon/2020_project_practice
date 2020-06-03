@@ -48,6 +48,13 @@ $(document).ready(function(){
 
         $("input#shot"+index).trigger("change");
     });
+
+    $("button#next").click(function(){
+        console.log("test");
+        location.href='../order_location.html';
+
+    });
+
 });
 
 function show_items(){
