@@ -26,7 +26,7 @@ ul.nav_menu {
     display: inline-block;
 }
 
-li {
+ul.nav_menu li {
     display: inline-block;
     font-weight: 500;
     font-size: 15pt;
@@ -180,15 +180,40 @@ p > button {
 
 #search_location_container {
     display: flex;
-    width: 800px;
+    width: 60vw;
     height: 50vh;
     margin: 50px auto;
-    border: 1px solid blue;
+    border: 1px solid rgb(21, 21, 44);
 }
 
 #search_section {
-    border: 1px solid red;
+    /* border: 5px solid red; */
     flex: 1;
+}
+
+#search_bar {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    /* border: solid 5px black; */
+}
+
+table#store_locations {
+    width: 100%;
+    list-style-type: none;
+    padding-left: 0;
+    border-collapse: collapse;
+    margin: 10px 0 0 0;
+}
+
+table#store_locations th {
+    background-color: rgb(179, 179, 179);
+    height: 3em;
+}
+
+table#store_locations td {
+    border: 1px solid grey;
+    height: 3em;
 }
 
 #map_section {
