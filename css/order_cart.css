@@ -178,6 +178,29 @@ p > button {
     border: none;
 }
 
+#search_location_container {
+    display: flex;
+    width: 800px;
+    height: 50vh;
+    margin: 50px auto;
+    border: 1px solid blue;
+}
+
+#search_section {
+    border: 1px solid red;
+    flex: 1;
+}
+
+#map_section {
+    border: 5px solid green;
+    flex: 1;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
 /* section 끝 */
 
 #snackbar {
