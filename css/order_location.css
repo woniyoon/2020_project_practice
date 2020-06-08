@@ -194,25 +194,33 @@ p > button {
 #search_bar {
     display: inline-block;
     width: 100%;
-    height: 40px;
+    height: 50px;
     /* border: solid 5px black; */
 }
 
-table#store_locations {
+#store_locations {
     width: 100%;
+    height: 90%;
+    /* border: 2px solid purple; */
     list-style-type: none;
     padding-left: 0;
     border-collapse: collapse;
-    margin: 10px 0 0 0;
+    overflow-y: auto;
 }
 
-table#store_locations th {
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#store_locations th { 
+    position: sticky; top: 0;
     background-color: rgb(179, 179, 179);
     height: 3em;
 }
 
-table#store_locations td {
-    border: 1px solid grey;
+#store_locations td {
+    /* border: 5px solid red; */
     height: 3em;
 }
 
