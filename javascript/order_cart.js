@@ -69,7 +69,7 @@ function show_items(){
 
             items_html += ("<div id='card"+index+"' class='card'>"
                                 +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
-                                +"<div class='card_detail_conatiner'>"
+                                +"<div class='card_detail_container'>"
                                     + "<img src='/assets/icedamericano.png'>"
                                     + "<div id='card_text' >"
                                         + "<h3>"+item.name+"</h3>"
