@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/order_payment.css"></style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7fa563027be4561a627edb8c3c2821f"></script>
+    <script type="text/javascript" src="/javascript/order_payment.js">
+    </script> 
+    <title>스타벅스 코리아</title>
+</head>
+<body>
+    <header>
+        <img id="logo" src="/assets/starbucks_logo.png" width=80px height=80px />
+        <ul class="nav_menu">
+            <li><a>ABOUT</a></li>
+            <li><a>MENU</a></li>
+            <li><a>MYPAGE</a></li>
+            <li><a>Q&A</a></li>
+        </ul>
+    </header>
+    <nav>🏠 > 메뉴 > 커스텀</nav>
+    <section align="center">
+        <ul class="order_progress">
+            <li><span>커스텀</span></li>
+            <li><span>매장선택</span></li>
+            <li><span>결제하기</span></li>
+            <li><span>결제완료</span></li>
+        </ul>
+        <div id="payment_container" align="center">
+            <div id="payment_option">
+                <label for="card">체크카드</label><input type="radio" name="payment_option" id="card" checked />
+                <!-- <label for="kakaotalk">카카오톡</label><input type="radio" name="payment_option" id="kakaotalk" /> -->
+                <label for="point">적립금</label><input type="radio" name="payment_option" id="point" />
+
+            </div>
+            <article id="payment_detail">
+                <div id="payment_detail_left" align="center">
+                    <img src="/assets/payment_card.png"/>
+                    <h3 id="final_price">총 금액 : </h3>
+                </div>
+                <form align="left">
+                    <ul id="card_option">
+                        <label>카드종류</label>
+                        <label for="visa">VISA</label><input type="radio" name="payment_card" id="visa" checked/>
+                        <label for="master">MASTER</label><input type="radio" name="payment_card" id="master" />
+                        <label for="amex">AMEX</label><input type="radio" name="payment_card" id="amex" />
+                    </ul>
+                    <ul>
+                        <label for="card_number">카드번호</label>
+                        <input type="text" name="card_number" id="card_number" placeholder="0000-0000-0000-0000" />
+                    </ul>
+                    <ul>
+                        <label for="card_holder_name">이름</label>
+                        <input type="text" name="card_holder_name" id="card_holder_name" placeholder="HONG KIL DONG" />
+                    </ul>
+                    <ul>
+                        <label for="cvc">CVC</label>
+                        <input type="password" name="cvc" id="cvc" placeholder="000" />
+                    </ul>
+                </form>
+            </article>
+            <div>
+                <button>뒤로</button>
+                <button>다음</button>
+            </div>
+        </div>
+    </section>
+    <div id="snackbar">알림용 스낵바입니다</div>
+    <footer></footer>
+</body>
+</html>
