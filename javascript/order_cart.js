@@ -34,6 +34,12 @@ var num_to_size = { 1: "tall", 2: "grande", 3: "venti" };
 var shot_dictionary = { tall: 3, grande: 4, venti: 5 };
 
 $(document).ready(function(){
+    var path = window.location.pathname;
+    var current_state = path.substring(1, (path.length - 5));
+
+    $("#"+current_state).css({"color": "white", "background-color": "green"})
+
+
     show_items();
 
     $("select.size").change(function(){

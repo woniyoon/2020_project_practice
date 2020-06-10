@@ -56,8 +56,8 @@ ul.order_progress li {
     vertical-align: middle;
     height: 50px;
     min-width: 80px;
-    background-color: green;
-    color:white;
+    background-color: white;
+    color:black;
     border: 1px solid lightgrey;
     margin: 0;
     text-align: center;
