@@ -69,6 +69,7 @@ ul.order_progress {
     /* justify-content: center; */
     padding-inline-start: 0px;
 }
+
 /* 
 section {
     margin: 30px auto;
@@ -107,7 +108,7 @@ div.card {
         max-height: 14vh;
     }
 
-    #card_option :first-child {
+    #card_payment :first-child {
         display: block;
         border: 1px solid salmon;
     }
@@ -117,24 +118,34 @@ form {
     border: 1px solid brown;
 }
 
-input[type=text] {
+ul#card_payment {
+    list-style-type: none;
+}
+
+ul#card_payment li {
+    display: inline-block;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.card_option {
+    display: inline;
+    border: 1px solid green;
+}
+
+input[type=text], input[type=password] {
     width: 150px;
     display: inline-block;
+    margin-right: 5px;
 }
 
 label {
     display: inline-block;
-    width: 70px;
+    width: 60px;
+    margin-right: 10px;
     /* border: 1px solid black; */
 }
 
-#card_option label {
-    display: inline;
-}
-
-#card_option :first-child {
-    margin-right: 15px;
-}
 
 p {
     display: block;

@@ -41,24 +41,30 @@
                     <img src="/assets/payment_card.png"/>
                     <h3 id="final_price">총 금액 : </h3>
                 </div>
-                <form align="left">
-                    <ul id="card_option">
-                        <label>카드종류</label>
-                        <label for="visa">VISA</label><input type="radio" name="payment_card" id="visa" checked/>
-                        <label for="master">MASTER</label><input type="radio" name="payment_card" id="master" />
-                        <label for="amex">AMEX</label><input type="radio" name="payment_card" id="amex" />
-                    </ul>
-                    <ul>
-                        <label for="card_number">카드번호</label>
-                        <input type="text" name="card_number" id="card_number" placeholder="0000-0000-0000-0000" />
-                    </ul>
-                    <ul>
-                        <label for="card_holder_name">이름</label>
-                        <input type="text" name="card_holder_name" id="card_holder_name" placeholder="HONG KIL DONG" />
-                    </ul>
-                    <ul>
-                        <label for="cvc">CVC</label>
-                        <input type="password" name="cvc" id="cvc" placeholder="000" />
+                <form id="payment_form" align="left">
+                    <ul id="card_payment">
+                        <li>
+                            <label >카드종류</label>
+                            <label class="card_option" for="visa">VISA</label><input type="radio" name="payment_card" id="visa" checked/>
+                            <label class="card_option" for="master">MASTER</label><input type="radio" name="payment_card" id="master" />
+                            <label class="card_option" for="amex">AMEX</label><input type="radio" name="payment_card" id="amex" />
+                        </li>
+                        <li>
+                            <label for="card_number">카드번호</label>
+                            <input type="text" name="card_number" id="card_number" placeholder="0000-0000-0000-0000" />
+                        </li>
+                        <li>
+                            <label for="card_holder_name">이름</label>
+                            <input type="text" name="card_holder_name" id="card_holder_name" placeholder="HONG KIL DONG" />
+                        </li>
+                        <li>
+                            <label for="cvc">CVC</label>
+                            <input type="password" name="cvc" id="cvc" placeholder="000" />
+                        </li>
+                        <li>
+                            <label>적립금</label>
+                            <input type="text" readonly/><button>적립금조회</button>
+                        </li>
                     </ul>
                 </form>
             </article>
