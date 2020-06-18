@@ -34,7 +34,7 @@ ul.nav_menu li {
 }
 
 .nav_menu a:active {
-    color: green;
+    color: #006633;
 }
 
 img#logo {
@@ -130,7 +130,7 @@ ul#card_payment li {
 
 .card_option {
     display: inline;
-    border: 1px solid green;
+    border: 1px solid #006633;
 }
 
 input[type=text], input[type=password] {
@@ -176,7 +176,7 @@ p > button {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    border: 3px solid yellowgreen;
+    border: 3px solid yellow#006633;
 }
 
 #payment_detail_left {
@@ -215,7 +215,7 @@ button#next {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
-    background-color: green;
+    background-color: #006633;
     color: #fff;
     text-align: center;
     border-radius: 2px;

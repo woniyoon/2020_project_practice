@@ -34,7 +34,7 @@ ul.nav_menu li {
 }
 
 .nav_menu a:active {
-    color: green;
+    color: #006633;
 }
 
 img#logo {
@@ -68,7 +68,7 @@ ul.order_progress li {
     vertical-align: middle;
     height: 50px;
     min-width: 80px;
-    background-color: green;
+    background-color: #006633;
     color:white;
     border: 1px solid lightgrey;
     margin: 0;
@@ -88,7 +88,7 @@ ul.order_progress {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
-    background-color: green;
+    background-color: #006633;
     color: #fff;
     text-align: center;
     border-radius: 2px;

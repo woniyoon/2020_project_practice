@@ -34,7 +34,7 @@ li {
 }
 
 .nav_menu a:active {
-    color: green;
+    color: #006633;
 }
 
 img#logo {
@@ -209,7 +209,7 @@ button#next {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
-    background-color: green;
+    background-color: #006633;
     color: #fff;
     text-align: center;
     border-radius: 2px;
