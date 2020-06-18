@@ -39,6 +39,7 @@ $(document).ready(function(){
 
     $("#"+current_state).css({"color": "white", "background-color": "green"})
 
+    $("#current_nav_menu").text($("li#"+current_state+" > span").text());
 
     show_items();
 

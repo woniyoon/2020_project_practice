@@ -2,6 +2,7 @@ $(document).ready(function(){
     var path = window.location.pathname;
     var current_state = path.substring(1, (path.length - 5));
     $("#"+current_state).css({"color": "white", "background-color": "green"})
+    $("#current_nav_menu").text($("li#"+current_state+" > span").text());
 
 
     $("#payment_option > input[type='radio']").each(function(index, item){
@@ -20,6 +21,8 @@ $(document).ready(function(){
                     break;
                 case "point":
                     $("#payment_detail_left > img").attr("src","/assets/payment_points.png");
+
+                    $("#payment_form").html();
                     break;
             }
             
