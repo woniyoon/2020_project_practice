@@ -30,14 +30,24 @@
             <li id="order_confirmed"><span>결제완료</span></li>
         </ul>
         <div id="payment_container" align="center">
-            <div id="payment_option">
+            <!-- <div id="payment_option">
                 <label for="card">체크카드</label><input type="radio" name="payment_option" id="card" checked />
                 <label for="kakaopay">카카오톡</label><input type="radio" name="payment_option" id="kakaopay" />
                 <label for="point">적립금</label><input type="radio" name="payment_option" id="point" />
 
-            </div>
-            <article id="payment_detail">
-                <div id="payment_detail_left" align="center">
+            </div> -->
+            <article id="payment_detail">  
+                <aside>   <!-- 결제 요약정보 -->
+                    <h4>선택한 매장 : </h4>
+                    <h4>주문 메뉴 : </h4>
+                    <h4>총 금액 : </h4>
+                </aside>
+                <aside>
+                    <label>적립금</label><br>
+                    <input type="number" readonly />
+                    <button>적립금 확인</button>
+                </aside>
+                <!-- <div id="payment_detail_left" align="center">
                     <img src="/assets/payment_card.png"/>
                     <h3 id="final_price">총 금액 : </h3>
                 </div>
@@ -66,11 +76,11 @@
                             <input type="text" readonly/><button>적립금조회</button>
                         </li>
                     </ul>
-                </form>
+                </form> -->
             </article>
             <div>
-                <button onclick="history.back()">뒤로</button>
-                <button onclick="javascript:location.href='order_confirmed.html'">다음</button>
+                <button class="move_button" onclick="history.back()">뒤로</button>
+                <button class="move_button" id="next" onclick="javascript:location.href='order_confirmed.html'">다음</button>
             </div>
         </div>
     </section>

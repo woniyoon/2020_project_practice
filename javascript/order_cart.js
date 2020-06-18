@@ -75,7 +75,7 @@ function show_items(){
             sum += item.price;
 
             items_html += ("<div id='card"+index+"' class='card'>"
-                                +"<p><button id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
+                                +"<p><button class='remove_button' id='"+index+"' onclick='remove_item(this.id)'>×</button></p>"
                                 +"<div class='card_detail_container'>"
                                     + "<img src='/assets/icedamericano.png'>"
                                     + "<div id='card_text' >"

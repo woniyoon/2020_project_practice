@@ -126,6 +126,12 @@ div.card {
     }
 }
 
+.remove_button {
+    font-size: 2rem;
+    background-color: transparent;  
+    border: none;
+}
+
 div.card_detail_container {
     display: flex;
 }
@@ -182,10 +188,19 @@ p {
     margin: 0;
 }
 
-p > button {
-    font-size: 2rem;
-    background-color: transparent;  
+.move_button {
+    width: 100px;
+    height: 50px;
+    margin: 0 5px 0 5px;
+    background-color: #f4f4f2;
     border: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 0 #b6b6b65a, 0 1px 1px 0 rgba(155, 155, 155, 0.337);
+}
+
+button#next {
+    background-color: #006633;
+    color: #fff;
 }
 
 /* section 끝 */
